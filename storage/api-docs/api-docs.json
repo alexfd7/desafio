@@ -1,0 +1,94 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Documentação API",
+        "contact": {
+            "email": "alexfd7@gmail.com"
+        },
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/getDocumentByKey/{key}": {
+            "get": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Return a Nfe by key",
+                "operationId": "getDocumentByKey",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "Key Access of Nfe",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful!"
+                    },
+                    "401": {
+                        "description": "Token incorrect or not found!"
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/getValueByKey/{key}": {
+            "get": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Return value of Nfe by key",
+                "operationId": "getValueByKey",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "Key Access of Nfe",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful!"
+                    },
+                    "401": {
+                        "description": "Token incorrect or not found!"
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "ApiKeyAuth": {
+                "type": "apiKey",
+                "description": "AUTH-TOKEN",
+                "name": "AUTH-TOKEN",
+                "in": "header",
+                "scheme": "http"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Documents"
+        }
+    ]
+}

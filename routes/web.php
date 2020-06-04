@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'DocumentController@listAll')->name('listAll');
+Route::get('/sincronizeAll', 'DocumentController@sincronizeAll')->name('sincronizeAll');
+
+
+

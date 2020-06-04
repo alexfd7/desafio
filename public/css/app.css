@@ -1,0 +1,17 @@
+
+.text-center {
+    text-align:  center !important;
+}
+
+
+.width-50px{
+    width: 50px !important;
+}
+
+.dn{
+	display: none !important;
+}
+
+.content{
+	padding: 20px !important;
+}
