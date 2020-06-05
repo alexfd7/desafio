@@ -49,8 +49,8 @@ class DocumentRepository implements DocumentInterface
                 $client= new Client();
                 $headers = [
                     'Content-Type' => 'application/json',
-                    'x-api-id' =>  Crypt::decryptString(env('X_API_ID')),
-                    'x-api-key' =>  Crypt::decryptString(env('X_API_KEY'))
+                    'x-api-id' =>  env('X_API_ID'),
+                    'x-api-key' =>  env('X_API_KEY')
                 ];
 
                 $restApi = new RestApi($url,$client,$headers);

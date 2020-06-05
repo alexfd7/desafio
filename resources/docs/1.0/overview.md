@@ -12,7 +12,7 @@
 <a name="section-1"></a>
 ## Introdução
 
-O projeto foi desenvolvido utilizando a tecnologia `Laravel`, banco `MySQL`  e servidor `Aapche`.
+O projeto foi desenvolvido utilizando a tecnologia `Laravel`, banco `MySQL` , servidor `Apache` e `PHP 7.3`.
 Como IDE o `VSCODE` foi adotado.
 
 <a name="section-2"></a>
