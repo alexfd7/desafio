@@ -3,5 +3,6 @@
 
 - ## Projeto	        
     - [Visão Geral](/{{route}}/{{version}}/overview)    
-    - [Instalação](/{{route}}/{{version}}/installation)
+    - [Instalação Manual](/{{route}}/{{version}}/installation1)
+    - [Instalação LaraDock](/{{route}}/{{version}}/installation2)
     - [Extras](/{{route}}/{{version}}/libraries)
