@@ -35,6 +35,8 @@ Verifique se no arquivo de configuração do `Apache` usualmente localizado em `
 Reinicie o apache caso tenha feito alguma alteração na configuração do `Apache`
 ```php
 /etc/init.d/apache2 restart
+
+sudo a2enmod rewrite
 ```
 <br>
 

@@ -20,7 +20,7 @@ php artisan key:generate
 composer dump-autoload
 composer install
 php artisan make:middleware AuthToken
-php artisan serve --port=8080
+php artisan serve --host=127.0.0.1 --port=8080
 ```
 
 
@@ -34,6 +34,19 @@ COMANDOS UTILIZADOS:
 php artisan make:migration create_users_table --create=users
 php artisan make:migration create_documents_table --create=documents
 php artisan migrate:refresh --seed
+```
+
+### DUSK
+<larecipe-card shadow>
+    O Laravel Dusk fornece uma API de teste e automação de navegador expressiva e fácil de usar. Para mais informações acessar <a href="https://laravel.com/docs/7.x/dusk" target="_blank">aqui</a>.
+</larecipe-card>
+COMANDOS UTILIZADOS:
+
+```php
+composer require --dev laravel/dusk
+php artisan make:test RoutesTest
+php artisan dusk:install
+php artisan dusk
 ```
 
 

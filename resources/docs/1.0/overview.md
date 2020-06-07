@@ -6,6 +6,7 @@
 - [Versionamento](#section-2)
 - [Telas e Funcionalidade](#section-3)
 - [Padrões e Organização](#section-4)
+- [Automação de Testes](#section-5)
 
 
 
@@ -112,5 +113,62 @@ Por fim um middleware foi criado para criar mecanismos de autenticação simples
 ```
 
 
+<a name="section-5"></a>
+## Automação de Testes
+
+O  `Dusk` fornece uma API de teste e automação de navegador expressiva e fácil de usar. Para mais informações acessar <a href="https://laravel.com/docs/7.x/dusk" target="_blank">aqui</a>.
+
+Ter a cultura de criar funcionalidades desacopladas e para cada funcionalidade nova criada, a criação de testes. Isso proporciona uma bateria de testes automatizados muito importante no contexto de projetos grandes, onde vários membros da equipe realizam alterações/manutenção diárias.
+
+<br>
+
+Se a cada nova feature ou manutenção for trabalhada em  branchs separadas, quando concluída a implementação o desenvolvedor consegue disparar de forma fácil e rápida a bateria de testes criada, identificando se ocorreu algum erro ou inconsistência.
 
 
+Pra o projeto foi criado um simples exemplo de teste automático, onde verifica se as rotas do projeto estão sem problemas.
+
+
+```php
+    php artisan make:test RoutesTest
+```
+
+
+<br>
+
+
+```php
+
+    public function testRouteHome()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/')
+                    ->assertSee('Lista de Notas Fiscais');
+        });
+    }
+
+    public function testRouteSincronizeAll()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/sincronizeAll')
+                    ->assertSee('Lista de Notas Fiscais');
+        });
+    }
+```
+
+
+<br>
+
+Para rodar os testes verifique se a variável `APP_URL` dentro do arquivo .env possui o mesmo endereço que foi feito o `serve` da aplicação
+
+```php
+php artisan serve 127.0.0.1 --port=8080
+
+APP_URL=APP_URL=http://127.0.0.1:8080
+```
+
+<br>
+Após verificado os endreços execute os teste com o comando
+
+```php
+php artisan dusk
+```

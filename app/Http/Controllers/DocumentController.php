@@ -19,9 +19,8 @@ class DocumentController extends Controller
 
     public function listAll()
     {
-
-
-         $documents = $this->document->listAll();
+  
+         $documents = $this->document->listAll();      
          return view('pages.home',['text'=>'Lista de Notas Fiscais','documents'=>$documents]);
 
     }

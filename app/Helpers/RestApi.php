@@ -22,21 +22,31 @@ class RestApi
 
     public function getRequest(){
 
-        $request = $this->client->get($this->url, [
-            'headers'         => $this->headers,
-            'timeout'         => 150,
-            'connect_timeout' => true,
-            'http_errors'     => true,            
-        ]);
 
-        $response = $request ? $request->getBody()->getContents() : null;
-        $status = $request ? $request->getStatusCode() : 500;
 
-        if ($response && $status === 200 && $response !== 'null') {
-            return $retorno = (object) json_decode($response);
+         try {
+                $request = $this->client->get($this->url, [
+                    'headers'         => $this->headers,
+                    'timeout'         => 5000,
+                    'connect_timeout' => true,
+                    'http_errors'     => true,            
+                ]);
+
+
+            $response = $request ? $request->getBody()->getContents() : null;
+            $status = $request ? $request->getStatusCode() : abort(500,'Tente Novamente');
+
+            if ($response && $status === 200 && $response !== 'null') {
+                return $retorno = (object) json_decode($response);
+            }
+
+            return null;   
+
+        } catch (ClientErrorResponseException $exception) {
+            abort(500,'Tente Novamente');
         }
 
-        return null;        
+        
 
     } 
 }
